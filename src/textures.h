@@ -4,6 +4,7 @@
 
 
 extern Texture2D playerIdleTexture;
+extern Texture2D playerRunTexture;
 
 void loadTextures();
 

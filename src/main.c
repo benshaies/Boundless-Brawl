@@ -6,14 +6,17 @@
 const int screenWidth = 1800;
 const int screenHeight = 1000;
 
+Player player;
+Player opponent;
+
 void draw(){
     BeginDrawing();
 
-    ClearBackground(RAYWHITE);
+    ClearBackground(WHITE);
     DrawFPS(0,0);
 
-    //drawStage(1);
-    drawPlayer();
+    drawPlayer(&player);
+    drawPlayer(&opponent);
 
     EndDrawing();
 }
@@ -25,12 +28,14 @@ void init(){
     //Texture
     loadTextures();
 
-    playerInit(1);
+    playerInit(&player, 1);
+    playerInit(&opponent, 2);
 }
 
 void update(){
     draw();
-    playerMovement();
+    updatePlayer(&player);
+    updatePlayer(&opponent);
 }
 
 int main(void){

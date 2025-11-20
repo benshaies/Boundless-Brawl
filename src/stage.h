@@ -4,7 +4,6 @@
 
 #define TIlE_SIZE 50;
 
-extern int stage1[20][36];
 extern Rectangle stage;
 
 void drawStage(int currentStage);

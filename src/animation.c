@@ -11,10 +11,10 @@ void animationInit(Animation *animation, float timer, Texture2D texture, int siz
         animation->yPos = yPos;
 }
 
-void playAnimation(Animation *animation, Rectangle destination, int direction){
+void playAnimation(Animation *animation, Rectangle destination, int direction, float speed, Color tint){
     
     animation->timer += GetFrameTime();
-    if(animation->timer >= 0.15f){
+    if(animation->timer >= speed){
         animation->currentFrame++;
         animation->timer = 0;
 
@@ -24,5 +24,5 @@ void playAnimation(Animation *animation, Rectangle destination, int direction){
     }
 
     Rectangle frameRec = {animation->currentFrame * animation->size, animation->yPos, direction*animation->size, animation->size};
-    DrawTexturePro(animation->texture, frameRec, destination, (Vector2){0,0}, 0.0f, WHITE);
+    DrawTexturePro(animation->texture, frameRec, destination, (Vector2){0,0}, 0.0f, tint);
 }

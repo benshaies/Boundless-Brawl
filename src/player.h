@@ -3,6 +3,8 @@
 #include "raylib.h"
 #include "animation.h"
 
+#define DODGE_FRAMES 12
+
     typedef struct{
         Vector2 pos;
         Rectangle rec;
@@ -12,6 +14,9 @@
         //Gameplay Stuff
         float dodgeTimer;
         float dodgeDelay;
+
+        int dodgeCountdown;
+        bool isDodging;
 
         float dodgePower;
 
@@ -34,20 +39,29 @@
 
         //Animations
         Animation playerIdleAnim;
+        Animation playerRunAnim;
+
+        //Input variables
+        bool moveRightInput;
+        bool moveLeftInput;
+        bool jumpInput;
+        bool dodgeInput;
+        bool lightAttackInput;
 
     }Player;
 
-    extern Player player;
+    void playerInit(Player *player, int id);
 
-    void playerInit(int id);
+    void playerInput(Player *player);
 
-    void playerDodge();
+    void playerDodge(Player *player);
 
-    void playerAttack();
+    void playerAttack(Player *player);
 
-    void playerMovement();
+    void playerMovement(Player *player);
 
-    void drawPlayer();
+    void drawPlayer(Player *player);
 
-    void updatePlayer();
-#endif
+    void updatePlayer(Player *player);
+
+    #endif

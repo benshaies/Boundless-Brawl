@@ -2,6 +2,8 @@
 #define ANIMATION_H
 #include <raylib.h>
 
+
+
     typedef struct{
         float timer;
         Texture2D texture;
@@ -15,6 +17,6 @@
     void animationInit(Animation *animation, float timer, Texture2D texture, int size, int frameCount, int currentFrame, 
      int yPos);
 
-    void playAnimation(Animation *animation, Rectangle destination, int direction);
+    void playAnimation(Animation *animation, Rectangle destination, int direction, float speed, Color tint);
 
-#endif
+        #endif
